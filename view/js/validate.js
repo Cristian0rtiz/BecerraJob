@@ -70,3 +70,78 @@ function validateModify(e){
     
 
 }
+
+
+
+function validateA(e){
+    e.preventDefault();
+    formulario = document.getElementById('frmAprendiz');
+    aprendiz = document.getElementById('txtA_Nombre');
+    feNac = document.getElementById('txtA_FeNac');
+    sex = document.getElementById('txtA_Sex');
+    ciu = document.getElementById('txtA_Ciu');
+    
+    lVali = true;
+    
+    if (aprendiz.value==""){
+        aprendiz.style.borderColor="red";
+        ohSnap('Ingresar nombre...', {color: 'red'});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (feNac.value==""){
+        feNac.style.borderColor="red";
+        ohSnap('Ingresar fecha de nacimiento...', {color: 'red'},{duration:1000});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (sex.value==""){
+        sex.style.borderColor="red";
+        ohSnap('Ingresar sexo...', {color: 'red'});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (ciu.value==""){
+        ciu.style.borderColor="red";
+        ohSnap('Ingresar la ciudad...', {color: 'red'});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (lVali == true){
+        formulario.submit();
+    }
+    
+
+}
+function validateModifyA(e){
+    e.preventDefault();
+    formulario  = document.getElementById('frmAprendizModificar');
+    aprendiz      = document.getElementById('txtA_Nombre');
+    feNac    = document.getElementById('txtA_FeNac');
+    sex     = document.getElementById('txtA_Sex');
+    ciu       = document.getElementById('txtA_Ciu');
+    
+    lVali = true;
+    
+    if (aprendiz.value==""){
+        aprendiz.style.borderColor="red";
+        ohSnap('Ingresar el nombre...', {color: 'red'});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (feNac.value==""){
+        feNac.style.borderColor="red";
+        ohSnap('Ingresar el apellido...', {color: 'red'},{duration:1000});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (sex.value==""){
+        sex.style.borderColor="red";
+        ohSnap('Ingresar el usuario...', {color: 'red'});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (ciu.value==""){
+        ciu.style.borderColor="red";
+        ohSnap('Ingresar la clave...', {color: 'red'});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (lVali == true){
+        formulario.submit();
+    }
+    
+
+}

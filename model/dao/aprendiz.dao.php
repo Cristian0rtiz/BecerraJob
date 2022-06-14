@@ -10,15 +10,15 @@
         private $city;
 
         public function __construct($objDtoAprendiz){
-            $this ->code      =  $objDtoAprendiz -> getCode();
-            $this ->user      =  $objDtoAprendiz -> getAprendiz();
-            $this ->password  =  $objDtoAprendiz -> getdateB();
-            $this ->name      =  $objDtoAprendiz -> getSex();
-            $this ->lastName  =  $objDtoAprendiz -> getCity();
+            $this ->code = $objDtoAprendiz -> getCode();
+            $this ->aprendiz = $objDtoAprendiz -> getAprendiz();
+            $this ->dateB = $objDtoAprendiz -> getdateB();
+            $this ->sex = $objDtoAprendiz -> getSex();
+            $this ->city = $objDtoAprendiz -> getCity();
         }
         public function getQueryLogin(){
 
-            $sql  = "SELECT * FROM USER 
+            $sql  = "SELECT * FROM USER
                     WHERE USER = ? AND PASSWORD = ?";
             try {
                 $objCon = new Conexion();
@@ -40,9 +40,9 @@
                 $objCon = new Conexion();
                 $stmt = $objCon->getConect() -> prepare($sql);
                 $stmt ->  bindParam(1,  $this -> aprendiz,      PDO::PARAM_STR);
-                $stmt ->  bindParam(2,  $this -> dateB,  PDO::PARAM_STR);
-                $stmt ->  bindParam(3,  $this -> sex,      PDO::PARAM_STR);
-                $stmt ->  bindParam(4,  $this -> city,  PDO::PARAM_STR);
+                $stmt ->  bindParam(2,  $this -> dateB,      PDO::PARAM_STR);
+                $stmt ->  bindParam(3,  $this -> sex,         PDO::PARAM_STR);
+                $stmt ->  bindParam(4,  $this -> city,       PDO::PARAM_STR);
                 $estado = $stmt -> execute();
             } catch (PDOException $e) {
                 echo "Error al insertar usuarios " . $e ->getMessage();
@@ -58,8 +58,7 @@
                 $stmt -> execute();
                 $respon = $stmt;
             } catch (PDOException $e) {
-                echo "Ha ocurrido un error al 
-                mostrar los datos en el dao " . $e -> getMessage() ;
+                echo "Ha ocurrido un error al mostrar los datos en el dao " . $e -> getMessage() ;
             }//end try-catch
             return $respon;
         }//END SEARCHALLAPRENDIZ
@@ -73,8 +72,7 @@
                 $stmt -> execute();
                 $respon = true;
             } catch (PDOException $e) {
-                echo "Ha ocurrido un error al 
-                mostrar los datos en el dao " . $e -> getMessage() ;
+                echo "Ha ocurrido un error al mostrar los datos en el dao " . $e -> getMessage() ;
             }//end try-catch
             return $respon;
         }
@@ -86,11 +84,11 @@
         try {
             $objCon = new Conexion();
             $stmt = $objCon->getConect() -> prepare($sql);
-            $stmt ->  bindParam(1,  $this -> code,      PDO::PARAM_INT);
-            $stmt ->  bindParam(2,  $this -> Aprendiz,      PDO::PARAM_STR);
-            $stmt ->  bindParam(3,  $this -> dateB,  PDO::PARAM_STR);
-            $stmt ->  bindParam(4,  $this -> sex,      PDO::PARAM_STR);
-            $stmt ->  bindParam(5,  $this -> city,  PDO::PARAM_STR);
+            $stmt ->  bindParam(1,  $this -> code, PDO::PARAM_INT);
+            $stmt ->  bindParam(2,  $this -> aprendiz, PDO::PARAM_STR);
+            $stmt ->  bindParam(3,  $this -> dateB, PDO::PARAM_STR);
+            $stmt ->  bindParam(4,  $this -> sex, PDO::PARAM_STR);
+            $stmt ->  bindParam(5,  $this -> city, PDO::PARAM_STR);
 
             $estado = $stmt -> execute();
         } catch (PDOException $e) {

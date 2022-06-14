@@ -1,15 +1,15 @@
-<input type="text" name="txtCodigo" id="txtCodigo">
+<input type="text" name="txtCodigoAM" id="txtCodigoAM">
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 class="fa fa-users">
-        Aprendiz  
+        Aprendiz
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-user"></i> Home</a></li>
         <li><a href="#">Aprendiz</a></li>
-      </ol> 
+      </ol>
     </section>
 
     <!-- Main content -->
@@ -27,7 +27,7 @@
               <i class="fa fa-times"></i></button>
           </div>
         </div>
-        <form method="post" id="frmUsuario">
+        <form method="post" id="frmAprendiz">
             <div class="box-body">
             <div class="row">
                 <div class="col-lg-6 col-xs-6">
@@ -53,14 +53,12 @@
                 <!-- texto box -->
                 <div class="input-group">
                     <span class="input-group-addon">Sexo</span>
-                    <form>
-                      <select type="form" class ="form-control" id="txtA_Sex" name="txtA_Sex" aria-label=".form-select-lg example">
-                        <option selected  >Sexo</option>
+                      <select class ="form-control" id="txtA_Sex" name="txtA_Sex" aria-label=".form-select-lg example" required="required">
+                        <option selected>Sexo</option>
                         <option value="1">Masculino</option>
                         <option value="2">Femenino</option>
                         <option value="3">No-binario</option>
                       </select>
-                    </form>
                 </div>
                 </div>
                 <!-- ./col -->
@@ -83,8 +81,8 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-              
-                <button class="btn btn-app" onclick="validate(event)">
+
+                <button class="btn btn-app" onclick="validateA(event)">
                     <i class="fa fa-save"></i> Guardar
                 </button>
                 <button class="btn btn-app" onclick="getGeneraReporte(event)">
@@ -95,8 +93,8 @@
         </form>
         <?php
           if (isset($_POST['txtA_Nombre'])){
-            $objCtrlUser = new AprendizController();
-            $objCtrlUser -> setInsertAprendiz(
+            $objCtrlAprendiz = new AprendizController();
+            $objCtrlAprendiz -> setInsertAprendiz(
               $_POST['txtA_Nombre'],
               $_POST['txtA_FeNac'],
               $_POST['txtA_Sex'],
@@ -132,22 +130,22 @@
               <tbody>
                 <form method="post">
                 <?php
-                  $objCtrlUserAll = new AprendizController();
-                  if (gettype($objCtrlUserAll -> getSearchAllAprendiz()) == 'boolean'){
+                  $objCtrlAprendizAll = new AprendizController();
+                  if (gettype($objCtrlAprendizAll -> getSearchAllAprendiz()) == 'boolean'){
                     echo '
                     <tr>
-                      <td colspan="5">no hay datos que mostrar</td>
+                      <td colspan="5"> no hay datos que mostrar </td>
                     </tr>';
                   }else{
-                    
-                    foreach ($objCtrlUserAll -> getSearchAllAprendiz() as $key => $value) {
+
+                    foreach ($objCtrlAprendizAll -> getSearchAllAprendiz() as $key => $value) {
                       echo '
                       <tr>
-                        <td>'.$value["CODIGO"].'</td>
-                        <td>'.$value["NOMBRE"].'</td>
-                        <td>'.$value["FECHANACIMIENTO"].'</td>
-                        <td>'.$value["SEXO"].'</td>
-                        <td>'.$value["CIUDAD"].'</td>
+                        <td>'.$value["codigo"].'</td>
+                        <td>'.$value["nombre"].'</td>
+                        <td>'.$value["fechaNacimiento"].'</td>
+                        <td>'.$value["sexo"].'</td>
+                        <td>'.$value["ciudad"].'</td>
                         <td class="text-center">
                           <button class="btn btn-social-icon bg-yellow" onclick="getData(this.parentElement.parentElement)" data-toggle="modal" data-target="#myModal">
                             <i class="fa fa-edit"></i>
@@ -164,7 +162,7 @@
               </tbody>
             </table>
         </div>
-        
+
         <!-- /.box-body -->
         <div class="box-footer">
         Footer
@@ -189,7 +187,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form method="post" id="frmUsuarioModificar">
+        <form method="post" id="frmAprendizModificar">
           <input type="hidden" name="txtCodigoAM" id="txtCodigoAM">
           <div class="box-body">
             <div class="row">
@@ -206,7 +204,7 @@
                 <!-- texto box -->
                     <div class="input-group">
                         <span class="input-group-addon">Fecha de Nacimiento</span>
-                        <input type="text" class="form-control" id="txtA_FecNacM" name="txtA_FecNacM">
+                        <input type="text" class="form-control" id="txtA_FeNac" name="txtA_FeNac">
                     </div>
                 </div>
                 <!-- ./col -->
@@ -240,20 +238,20 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <div>
-          <button class="btn btn-app float-left" onclick="validateModify(event)">
+          <button class="btn btn-app float-left" onclick="validateModifyA(event)">
               <i class="fa fa-save"></i> Guardar
           </button>
           <?php
-            if (isset($_POST['txtNombreM'])){
+            if (isset($_POST['txtA_Nombre'])){
               $objCtrlUser = new AprendizController();
               $objCtrlUser -> setUpdateAprendiz(
-                $_POST['txtCodigoAM'],
-                $_POST['txtA_NombreM'],
-                $_POST['txtA_FecNacM'],
-                $_POST['txtA_SexM'],
-                $_POST['txtA_CiuM']
+                $_POST['txtCodigo'],
+                $_POST['txtA_Nombre'],
+                $_POST['txtA_FeNac'],
+                $_POST['txtA_Sex'],
+                $_POST['txtA_Ciu']
               );
-              include_once 'view/module/Aprendiz.php'; 
+              include_once 'view/module/Aprendiz.php';
             }
           ?>
           <button class="btn btn-app" data-dismiss="modal">
