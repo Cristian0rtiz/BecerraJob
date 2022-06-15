@@ -13,10 +13,13 @@
     /////////////////////////////////////////////
     require_once 'model/dao/user.dao.php';
     require_once 'model/dto/user.dto.php';
-    
+
     require_once 'model/dao/aprendiz.dao.php';
     require_once 'model/dto/Aprendiz.dto.php';
-    
+
+    require_once 'model/dao/matricula.dao.php';
+    require_once 'model/dto/matricula.dto.php';
+
     /////////////////////////////////////////////
     //                 CONEXION                //
     /////////////////////////////////////////////
@@ -25,7 +28,7 @@
     /////////////////////////////////////////////
     //                  LIBRARYS               //
     /////////////////////////////////////////////
-    
+
 
     /////////////////////////////////////////////
                     /* run */

@@ -1,12 +1,11 @@
 <?php
-//echo "llego";
-eraseUser();
-function eraseUser(){
+eraseAprendiz();
+function eraseAprendiz(){
     try {
-        $objDtoUser = new User();
-        $objDtoUser -> setCode($_GET['codigo']);
-        $objDaoUser = new UserModel($objDtoUser);
-        if ( $objDaoUser -> mldEraseUser() == true ) {
+        $objDtoAprendiz = new Aprendiz();
+        $objDtoAprendiz -> setCode($_GET['codigo']);
+        $objDaoAprendiz = new AprendizModel($objDtoAprendiz);
+        if ( $objDaoAprendiz -> mldEraseAprendiz() == true ) {
 
             echo "<script>
                     Swal.fire(
@@ -15,7 +14,7 @@ function eraseUser(){
                         'success'
                     )
                 </script>";
-                include_once 'view/module/user.php'; 
+                include_once 'view/module/Aprendiz.php';
         }
 
     } catch ( PDOException $e ) {
@@ -24,5 +23,4 @@ function eraseUser(){
 
 
 }
-
 ?>

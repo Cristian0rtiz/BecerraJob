@@ -20,7 +20,7 @@ class AprendizController{
                     icon: 'error',
                     title: 'Oops...',
                     text: 'Password error!'})
-                </script>                
+                </script>
                 ";
 
             }else{
@@ -41,14 +41,7 @@ class AprendizController{
                 $objDtoAprendiz -> setCity($city);
 
                 $objDaoAprendiz = new AprendizModel($objDtoAprendiz);
-
                 if ($objDaoAprendiz -> mldInsertAprendiz()){
-                    echo "<script>
-                    Swal.fire(
-                        'Guardado',
-                        'Registro insertado',
-                        'success')
-                    </script>";
                 }
 
             }   catch(Exception $e){

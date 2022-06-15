@@ -19,6 +19,12 @@
       case 'aprendiz':
         include_once 'view/module/Aprendiz.php';
       break;
+      case 'eraseA':
+        include_once "view/module/eraseA.php";
+        break;
+        case 'eraseM':
+          include_once "view/module/eraseM.php";
+          break;
       default:
         include_once 'view/module/presentation.php';
       break;

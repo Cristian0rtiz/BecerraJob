@@ -4,7 +4,7 @@
     require_once '../../model/dto/user.dto.php';
     require_once '../../model/conexion.php';
     class Reporte{
-        
+
         private $pdf;
 
         public function __construct(){

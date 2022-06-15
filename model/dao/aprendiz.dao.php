@@ -16,25 +16,25 @@
             $this ->sex = $objDtoAprendiz -> getSex();
             $this ->city = $objDtoAprendiz -> getCity();
         }
-        public function getQueryLogin(){
+        // public function getQueryLogin(){
 
-            $sql  = "SELECT * FROM USER
-                    WHERE USER = ? AND PASSWORD = ?";
-            try {
-                $objCon = new Conexion();
+        //     $sql  = "SELECT * FROM USER
+        //             WHERE USER = ? AND PASSWORD = ?";
+        //     try {
+        //         $objCon = new Conexion();
 
-                $stmt = $objCon->getConect() -> prepare($sql);
-                $stmt ->  bindParam(1,  $this -> user,  PDO::PARAM_STR);
-                $stmt ->  bindParam(2,  $this -> password,  PDO::PARAM_STR);
-                $stmt -> execute();
-                $result = $stmt;
-            } catch (Exception $e) {
-                echo "Error al consultar Aprendiz " . $e ->getMessage();
-            }
-            return $result;
-        }//END METHOD
+        //         $stmt = $objCon->getConect() -> prepare($sql);
+        //         $stmt ->  bindParam(1,  $this -> user,  PDO::PARAM_STR);
+        //         $stmt ->  bindParam(2,  $this -> password,  PDO::PARAM_STR);
+        //         $stmt -> execute();
+        //         $result = $stmt;
+        //     } catch (Exception $e) {
+        //         echo "Error al consultar Aprendiz " . $e ->getMessage();
+        //     }
+        //     return $result;
+        // }//END METHOD
         public function mldInsertAprendiz(){
-            $sql  = "CALL spInsertAprendiz (?, ?, ?, ?);";
+            $sql  = "CALL `spInsertAprendiz` (?, ?, ?, ?);";
             $estado = false;
             try {
                 $objCon = new Conexion();
@@ -50,7 +50,6 @@
             return $estado;
         }
         public function mldSearchAllAprendiz(){
-            $respon=false;
             $sql  = "call spSearchAllAprendiz()";
             try {
                 $objCon = new Conexion();
@@ -62,13 +61,14 @@
             }//end try-catch
             return $respon;
         }//END SEARCHALLAPRENDIZ
+
         public function mldEraseAprendiz(){
+            $sql  = "call spDeleteAprendiz(?)";
             $respon = false;
-            $sql  = "call spDeleteAprendiz( ? )";
             try {
                 $objCon = new Conexion();
                 $stmt = $objCon->getConect() -> prepare($sql);
-                $stmt ->  bindParam(1,  $this -> code,      PDO::PARAM_INT);
+                $stmt ->  bindParam(1, $this -> code, PDO::PARAM_INT);
                 $stmt -> execute();
                 $respon = true;
             } catch (PDOException $e) {
@@ -78,17 +78,17 @@
         }
 
 
+
     public function mldUpdateAprendiz(){
-        $sql  = "CALL spUpdateAprendiz (?, ?, ?, ?, ?);";
+        $sql  = "CALL spUpdateAprendiz (?, ?, ?, ?);";
         $estado = false;
         try {
             $objCon = new Conexion();
             $stmt = $objCon->getConect() -> prepare($sql);
-            $stmt ->  bindParam(1,  $this -> code, PDO::PARAM_INT);
-            $stmt ->  bindParam(2,  $this -> aprendiz, PDO::PARAM_STR);
-            $stmt ->  bindParam(3,  $this -> dateB, PDO::PARAM_STR);
-            $stmt ->  bindParam(4,  $this -> sex, PDO::PARAM_STR);
-            $stmt ->  bindParam(5,  $this -> city, PDO::PARAM_STR);
+            $stmt ->  bindParam(1,  $this -> aprendiz, PDO::PARAM_STR);
+            $stmt ->  bindParam(2,  $this -> dateB, PDO::PARAM_STR);
+            $stmt ->  bindParam(3,  $this -> sex, PDO::PARAM_STR);
+            $stmt ->  bindParam(4,  $this -> city, PDO::PARAM_STR);
 
             $estado = $stmt -> execute();
         } catch (PDOException $e) {

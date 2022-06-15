@@ -1,4 +1,4 @@
-<input type="text" name="txtCodigoAM" id="txtCodigoAM">
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -147,10 +147,10 @@
                         <td>'.$value["sexo"].'</td>
                         <td>'.$value["ciudad"].'</td>
                         <td class="text-center">
-                          <button class="btn btn-social-icon bg-yellow" onclick="getData(this.parentElement.parentElement)" data-toggle="modal" data-target="#myModal">
+                          <button class="btn btn-social-icon bg-yellow" onclick="getDataAp(this.parentElement.parentElement)" data-toggle="modal" data-target="#myModal">
                             <i class="fa fa-edit"></i>
                           </button>
-                          <button class="btn btn-social-icon btn-google"  onClick="erase(this.parentElement.parentElement)">
+                          <button class="btn btn-social-icon btn-google"  onClick="eraseA(this.parentElement.parentElement)">
                             <i class="fa fa-trash"></i>
                           </button>
                         </td>
@@ -204,7 +204,7 @@
                 <!-- texto box -->
                     <div class="input-group">
                         <span class="input-group-addon">Fecha de Nacimiento</span>
-                        <input type="text" class="form-control" id="txtA_FeNac" name="txtA_FeNac">
+                        <input type="text" class="form-control" id="txtA_FeNacM" name="txtA_FeNac">
                     </div>
                 </div>
                 <!-- ./col -->
@@ -242,16 +242,15 @@
               <i class="fa fa-save"></i> Guardar
           </button>
           <?php
-            if (isset($_POST['txtA_Nombre'])){
-              $objCtrlUser = new AprendizController();
-              $objCtrlUser -> setUpdateAprendiz(
-                $_POST['txtCodigo'],
-                $_POST['txtA_Nombre'],
-                $_POST['txtA_FeNac'],
-                $_POST['txtA_Sex'],
-                $_POST['txtA_Ciu']
+            if (isset($_POST['txtA_NombreM'])){
+              $objCtrlAprendiz = new AprendizController();
+              $objCtrlAprendiz -> setUpdateAprendiz(
+                $_POST['txtCodigoAM'],
+                $_POST['txtA_NombreM'],
+                $_POST['txtA_FeNacM'],
+                $_POST['txtA_SexM'],
+                $_POST['txtA_CiuM']
               );
-              include_once 'view/module/Aprendiz.php';
             }
           ?>
           <button class="btn btn-app" data-dismiss="modal">
