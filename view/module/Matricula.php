@@ -4,7 +4,6 @@
     <section class="content-header">
       <h1 class="fa fa-sign-in">
         Matricula
-        <small>te matriculas bro</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-sign-in"></i> Home</a></li>

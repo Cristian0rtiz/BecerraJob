@@ -116,7 +116,7 @@
           </div>
         </div>
         <div class="box-body">
-            <table id="aprendices" class="table table-dark table-striped table-hover">
+            <table id="users" class="table table-dark table-striped table-hover">
               <thead>
                 <tr>
                   <th class="text-center">Codigo</th>
