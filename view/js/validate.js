@@ -1,147 +1,149 @@
-function validate(e){
+function validate(e) {
     e.preventDefault();
-    formulario  = document.getElementById('frmUsuario');
-    nombre      = document.getElementById('txtNombre');
-    apellido    = document.getElementById('txtApellido');
-    usuario     = document.getElementById('txtUsuario');
-    clave       = document.getElementById('txtClave');
-    
-    lVali = true;
-    
-    if (nombre.value==""){
-        nombre.style.borderColor="red";
-        ohSnap('Ingresar el nombre...', {color: 'red'});  // alert will have class 'alert-color'
-        lVali = false;
-    }
-    if (apellido.value==""){
-        apellido.style.borderColor="red";
-        ohSnap('Ingresar el apellido...', {color: 'red'},{duration:1000});  // alert will have class 'alert-color'
-        lVali = false;
-    }
-    if (usuario.value==""){
-        usuario.style.borderColor="red";
-        ohSnap('Ingresar el usuario...', {color: 'red'});  // alert will have class 'alert-color'
-        lVali = false;
-    }
-    if (clave.value==""){
-        clave.style.borderColor="red";
-        ohSnap('Ingresar la clave...', {color: 'red'});  // alert will have class 'alert-color'
-        lVali = false;
-    }
-    if (lVali == true){
-        formulario.submit();
-    }
-    
+    formulario = document.getElementById('frmUsuario');
+    nombre = document.getElementById('txtNombre');
+    apellido = document.getElementById('txtApellido');
+    usuario = document.getElementById('txtUsuario');
+    clave = document.getElementById('txtClave');
 
-}
-function validateModify(e){
-    e.preventDefault();
-    formulario  = document.getElementById('frmUsuarioModificar');
-    nombre      = document.getElementById('txtNombreM');
-    apellido    = document.getElementById('txtApellidoM');
-    usuario     = document.getElementById('txtUsuarioM');
-    clave       = document.getElementById('txtClaveM');
-    
     lVali = true;
-    
-    if (nombre.value==""){
-        nombre.style.borderColor="red";
-        ohSnap('Ingresar el nombre...', {color: 'red'});  // alert will have class 'alert-color'
+
+    if (nombre.value == "") {
+        nombre.style.borderColor = "red";
+        ohSnap('Ingresar el nombre...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (apellido.value==""){
-        apellido.style.borderColor="red";
-        ohSnap('Ingresar el apellido...', {color: 'red'},{duration:1000});  // alert will have class 'alert-color'
+    if (apellido.value == "") {
+        apellido.style.borderColor = "red";
+        ohSnap('Ingresar el apellido...', { color: 'red' }, { duration: 1000 }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (usuario.value==""){
-        usuario.style.borderColor="red";
-        ohSnap('Ingresar el usuario...', {color: 'red'});  // alert will have class 'alert-color'
+    if (usuario.value == "") {
+        usuario.style.borderColor = "red";
+        ohSnap('Ingresar el usuario...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (clave.value==""){
-        clave.style.borderColor="red";
-        ohSnap('Ingresar la clave...', {color: 'red'});  // alert will have class 'alert-color'
+    if (clave.value == "") {
+        clave.style.borderColor = "red";
+        ohSnap('Ingresar la clave...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (lVali == true){
+    if (lVali == true) {
         formulario.submit();
     }
-    
+
 
 }
 
+function validateModify(e) {
+    e.preventDefault();
+    formulario = document.getElementById('frmUsuarioModificar');
+    nombre = document.getElementById('txtNombreM');
+    apellido = document.getElementById('txtApellidoM');
+    usuario = document.getElementById('txtUsuarioM');
+    clave = document.getElementById('txtClaveM');
+
+    lVali = true;
+
+    if (nombre.value == "") {
+        nombre.style.borderColor = "red";
+        ohSnap('Ingresar el nombre...', { color: 'red' }); // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (apellido.value == "") {
+        apellido.style.borderColor = "red";
+        ohSnap('Ingresar el apellido...', { color: 'red' }, { duration: 1000 }); // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (usuario.value == "") {
+        usuario.style.borderColor = "red";
+        ohSnap('Ingresar el usuario...', { color: 'red' }); // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (clave.value == "") {
+        clave.style.borderColor = "red";
+        ohSnap('Ingresar la clave...', { color: 'red' }); // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (lVali == true) {
+        formulario.submit();
+    }
 
 
-function validateA(e){
+}
+
+
+
+function validateA(e) {
     e.preventDefault();
     formulario = document.getElementById('frmAprendiz');
-    aprendiz = document.getElementById('txtA_Nombre');
-    feNac = document.getElementById('txtA_FeNac');
-    sex = document.getElementById('txtA_Sex');
-    ciu = document.getElementById('txtA_Ciu');
-    
+    nombre = document.getElementById('txtA_Nombre');
+    fechaNacimiento = document.getElementById('txtA_FeNac');
+    sexo = document.getElementById('txtA_Sex');
+    ciudad = document.getElementById('txtA_Ciu');
+
     lVali = true;
-    
-    if (aprendiz.value==""){
-        aprendiz.style.borderColor="red";
-        ohSnap('Ingresar nombre...', {color: 'red'});  // alert will have class 'alert-color'
+
+    if (nombre.value == "") {
+        anombre.style.borderColor = "red";
+        ohSnap('Ingresar nombre...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (feNac.value==""){
-        feNac.style.borderColor="red";
-        ohSnap('Ingresar fecha de nacimiento...', {color: 'red'},{duration:1000});  // alert will have class 'alert-color'
+    if (fechaNacimiento.value == "") {
+        fechaNacimiento.style.borderColor = "red";
+        ohSnap('Ingresar fecha de nacimiento...', { color: 'red' }, { duration: 1000 }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (sex.value==""){
-        sex.style.borderColor="red";
-        ohSnap('Ingresar sexo...', {color: 'red'});  // alert will have class 'alert-color'
+    if (sexo.value == "") {
+        sexo.style.borderColor = "red";
+        ohSnap('Ingresar sexo...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (ciu.value==""){
-        ciu.style.borderColor="red";
-        ohSnap('Ingresar la ciudad...', {color: 'red'});  // alert will have class 'alert-color'
+    if (ciudad.value == "") {
+        ciudad.style.borderColor = "red";
+        ohSnap('Ingresar la ciudad...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (lVali == true){
+    if (lVali == true) {
         formulario.submit();
     }
-    
+
 
 }
-function validateModifyA(e){
+
+function validateModifyA(e) {
     e.preventDefault();
-    formulario  = document.getElementById('frmAprendizModificar');
-    aprendiz      = document.getElementById('txtA_Nombre');
-    feNac    = document.getElementById('txtA_FeNac');
-    sex     = document.getElementById('txtA_Sex');
-    ciu       = document.getElementById('txtA_Ciu');
-    
+    formulario = document.getElementById('frmAprendizModificar');
+    nombre = document.getElementById('txtA_Nombre');
+    fechaNacimiento = document.getElementById('txtA_FeNac');
+    sexo = document.getElementById('txtA_Sex');
+    ciudad = document.getElementById('txtA_Ciu');
+
     lVali = true;
-    
-    if (aprendiz.value==""){
-        aprendiz.style.borderColor="red";
-        ohSnap('Ingresar el nombre...', {color: 'red'});  // alert will have class 'alert-color'
+
+    if (nombre.value == "") {
+        nombre.style.borderColor = "red";
+        ohSnap('Ingresar el nombre...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (feNac.value==""){
-        feNac.style.borderColor="red";
-        ohSnap('Ingresar el apellido...', {color: 'red'},{duration:1000});  // alert will have class 'alert-color'
+    if (fechaNacimiento.value == "") {
+        fechaNacimiento.style.borderColor = "red";
+        ohSnap('Ingresar el apellido...', { color: 'red' }, { duration: 1000 }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (sex.value==""){
-        sex.style.borderColor="red";
-        ohSnap('Ingresar el usuario...', {color: 'red'});  // alert will have class 'alert-color'
+    if (sexo.value == "") {
+        sexo.style.borderColor = "red";
+        ohSnap('Ingresar el usuario...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (ciu.value==""){
-        ciu.style.borderColor="red";
-        ohSnap('Ingresar la clave...', {color: 'red'});  // alert will have class 'alert-color'
+    if (ciudad.value == "") {
+        ciudad.style.borderColor = "red";
+        ohSnap('Ingresar la clave...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
-    if (lVali == true){
+    if (lVali == true) {
         formulario.submit();
     }
-    
+
 
 }

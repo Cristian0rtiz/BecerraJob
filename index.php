@@ -7,7 +7,8 @@
     require_once 'controller/template.controller.php';
     require_once 'controller/aprendiz.controller.php'; 
     require_once 'controller/matricula.controller.php';
-
+    require_once "controller/matricula.controller.php";
+    
     /////////////////////////////////////////////
     //                   MODEL                 //
     /////////////////////////////////////////////
@@ -16,6 +17,9 @@
     
     require_once 'model/dao/aprendiz.dao.php';
     require_once 'model/dto/Aprendiz.dto.php';
+
+    require_once "model/dao/matricula.dao.php";
+    require_once "model/dto/matricula.dto.php";
     
     /////////////////////////////////////////////
     //                 CONEXION                //

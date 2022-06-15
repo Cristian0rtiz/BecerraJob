@@ -20,7 +20,7 @@ class AprendizController{
                     icon: 'error',
                     title: 'Oops...',
                     text: 'Password error!'})
-                </script>                
+                </script>
                 ";
 
             }else{

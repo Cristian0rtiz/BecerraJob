@@ -147,10 +147,10 @@
                         <td>'.$value["sexo"].'</td>
                         <td>'.$value["ciudad"].'</td>
                         <td class="text-center">
-                          <button class="btn btn-social-icon bg-yellow" onclick="getData(this.parentElement.parentElement)" data-toggle="modal" data-target="#myModal">
+                          <button class="btn btn-social-icon bg-yellow" onclick="getDataA(this.parentElement.parentElement)" data-toggle="modal" data-target="#myModal">
                             <i class="fa fa-edit"></i>
                           </button>
-                          <button class="btn btn-social-icon btn-google"  onClick="erase(this.parentElement.parentElement)">
+                          <button class="btn btn-social-icon btn-google"  onClick="eraseA(this.parentElement.parentElement)">
                             <i class="fa fa-trash"></i>
                           </button>
                         </td>
@@ -181,21 +181,21 @@
 
       <!-- Modal Header -->
       <div class="modal-header bg bg-info">
-        <h4 class="modal-title">Modificar Usuario</h4>
+        <h4 class="modal-title">Modificar Aprendiz</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
         <form method="post" id="frmAprendizModificar">
-          <input type="hidden" name="txtCodigoAM" id="txtCodigoAM">
+          <input type="hidden" name="txtCodigo" id="txtCodigo">
           <div class="box-body">
             <div class="row">
                 <div class="col-lg-6 col-xs-6">
                 <!-- texto box -->
                     <div class="input-group">
                         <span class="input-group-addon">Nombre</span>
-                        <input type="text" class="form-control" id="txtA_NombreM" name="txtA_NombreM">
+                        <input type="text" class="form-control" id="txtA_Nombre" name="txtA_Nombre">
                         <span class="input-group-addon">N</span>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
                 <!-- texto box -->
                     <div class="input-group">
                         <span class="input-group-addon">Sexo</span>
-                        <input type="text" class="form-control" id="txtA_SexM" name="txtA_SexM">
+                        <input type="text" class="form-control" id="txtA_Sex" name="txtA_Sex">
                     </div>
                 </div>
                 <!-- ./col -->
@@ -223,7 +223,7 @@
                 <!-- texto box -->
                     <div class="input-group">
                         <span class="input-group-addon">Ciudad</span>
-                        <input type="text" class="form-control" id="txtA_CiuM" name="txtA_CiuM" >
+                        <input type="text" class="form-control" id="txtA_Ciu" name="txtA_Ciu" >
                     </div>
                 </div>
                 <!-- ./col -->
@@ -243,8 +243,8 @@
           </button>
           <?php
             if (isset($_POST['txtA_Nombre'])){
-              $objCtrlUser = new AprendizController();
-              $objCtrlUser -> setUpdateAprendiz(
+              $objCtrlAprendiz = new AprendizController();
+              $objCtrlAprendiz -> setUpdateAprendiz(
                 $_POST['txtCodigo'],
                 $_POST['txtA_Nombre'],
                 $_POST['txtA_FeNac'],
