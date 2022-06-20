@@ -1,10 +1,10 @@
 <?php
-    require_once '../../controller/user.controller.php';
-    require_once '../../model/dao/user.dao.php';
-    require_once '../../model/dto/user.dto.php';
+    require_once '../../controller/matricula.controller.php';
+    require_once '../../model/dao/matricula.dao.php';
+    require_once '../../model/dto/matricula.dto.php';
     require_once '../../model/conexion.php';
     class Reporte{
-
+        
         private $pdf;
 
         public function __construct(){
@@ -21,7 +21,7 @@
             // Movernos a la derecha
             $this->pdf->Cell(80);
             // Título
-            $this->pdf->Cell(30,10,'TODOS LOS USUARIOS',0,0,'C');
+            $this->pdf->Cell(30,10,'TODAS LAS MATRICULAS',0,0,'C');
             // Salto de línea
             $this->pdf->Ln(20);
         }//fin del encabezado
@@ -31,21 +31,25 @@
             $this -> pdf->SetFont('Arial','B',16);
             
             try {
-                $objDtoUser = new User();
-                $objDaoUser = new UserModel($objDtoUser);
-                $respon = $objDaoUser -> mldSearchAllUser()->fetchAll();
+                $objDtoMatricula = new Matricula();
+                $objDaoMatricula = new MatriculaModel($objDtoMatricula);
+                $respon = $objDaoMatricula -> mldSearchAllMatricula()->fetchAll();
             } catch (PDOException $e) {
-                echo "Error on the creation of the 
-                controller of show all " . $e->getMessage();
+                echo "cant show the enrollment list " . $e->getMessage();
             }
             $this->pdf->Ln(10);
             foreach ($respon as $key => $value) {
                 
-                $this->pdf->Cell(40,10,$value['CODE'] );
-                $this->pdf->Cell(40,10,$value['USER'] );
-                $this->pdf->Cell(40,10,$value['NAME'] );
+                $this->pdf->Cell(40,10,$value['codigoMatricula'] );
+                $this->pdf->Cell(40,10,$value['fechaMatricula'] );
+                $this->pdf->Cell(40,10,$value['nombreCentro'] );
+                $this->pdf->Cell(40,10,$value['costo'] );
+                $this->pdf->Cell(40,10,$value['estado'] );
+                $this->pdf->Cell(40,10,$value['codigoPrograma'] );
+                $this->pdf->Cell(40,10,$value['codigoAprendiz'] );
                 $this->pdf->Ln(10);
             }
+           
         }
         public function footReport(){
             $this->pdf->SetY(-5);

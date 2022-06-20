@@ -161,8 +161,33 @@ function getDataAp(obj) {
     document.getElementById("txtA_SexM").value = sex;
     document.getElementById("txtA_CiuM").value = city;
 }
-// function getGeneraReporte(e){
-//     window.open('view/module/alluser.php','_blank');
-//     e.preventDefault();
+function getGeneraReporteA(e){
+    window.open('view/module/allAprendiz.php','_blank');
+    e.preventDefault();
 
-// }
+}
+
+function getDataM(obj) {
+    let CMM = obj.children[0].innerHTML;
+    let DM = obj.children[1].innerHTML;
+    let PL = obj.children[2].innerHTML;
+    let CM = obj.children[3].innerHTML;
+    let SM = obj.children[4].innerHTML;
+    let PM = obj.children[5].innerHTML;
+    let STM = obj.children[6].innerHTML;
+  
+    document.getElementById("txtCodigoMatricula").value = CMM;
+    document.getElementById("txtDateM").value = DM;
+    document.getElementById("txtPlaceM").value = PL;
+    document.getElementById("txtCostM").value = CM;
+    document.getElementById("txtStateM").value = SM;
+    document.getElementById("txtProgramnM").value = PM;
+    document.getElementById("txtStudentM").value = STM;
+  
+  }
+
+  function getGenerarReporteM(e){
+    window.open("view/module/allMatricula.php","_blank");
+    e.preventDefault();
+  
+  }

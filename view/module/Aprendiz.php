@@ -69,9 +69,9 @@
                       <span class="input-group-addon">Ciudad</span>
                         <select class="form-control" id="txtA_Ciu" name="txtA_Ciu" aria-label=".form-select-lg example">
                           <option selected>Ciudad</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                          <option value="Medellin">Medellin</option>
+                          <option value="Bogotá">Bogotá</option>
+                          <option value="Cali">Cali</option>
                         </select>
                     </div>
                     <!-- </div> -->
@@ -85,7 +85,7 @@
                 <button class="btn btn-app" onclick="validateA(event)">
                     <i class="fa fa-save"></i> Guardar
                 </button>
-                <button class="btn btn-app" onclick="getGeneraReporte(event)">
+                <button class="btn btn-app" onclick="getGeneraReporteA(event)">
                     <i class="fa fa-print"></i> Reporte
                 </button>
             </div>
@@ -204,7 +204,7 @@
                 <!-- texto box -->
                     <div class="input-group">
                         <span class="input-group-addon">Fecha de Nacimiento</span>
-                        <input type="text" class="form-control" id="txtA_FeNacM" name="txtA_FeNac">
+                        <input type="date" class="form-control" id="txtA_FeNacM" name="txtA_FeNac">
                     </div>
                 </div>
                 <!-- ./col -->
@@ -221,9 +221,14 @@
                 <!-- ./col -->
                 <div class="col-lg-6 col-xs-6">
                 <!-- texto box -->
-                    <div class="input-group">
-                        <span class="input-group-addon">Ciudad</span>
-                        <input type="text" class="form-control" id="txtA_CiuM" name="txtA_CiuM" >
+                  <div class="input-group">
+                      <span class="input-group-addon">Ciudad</span>
+                        <select class="form-control" id="txtA_CiuM" name="txtA_CiuM" aria-label=".form-select-lg example">
+                          <option selected>Ciudad</option>
+                          <option value="Medellin">Medellin</option>
+                          <option value="Bogotá">Bogotá</option>
+                          <option value="Cali">Cali</option>
+                        </select>
                     </div>
                 </div>
                 <!-- ./col -->

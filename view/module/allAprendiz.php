@@ -1,7 +1,7 @@
 <?php
-    require_once '../../controller/user.controller.php';
-    require_once '../../model/dao/user.dao.php';
-    require_once '../../model/dto/user.dto.php';
+    require_once '../../controller/aprendiz.controller.php';
+    require_once '../../model/dao/aprendiz.dao.php';
+    require_once '../../model/dto/aprendiz.dto.php';
     require_once '../../model/conexion.php';
     class Reporte{
 
@@ -21,7 +21,7 @@
             // Movernos a la derecha
             $this->pdf->Cell(80);
             // Título
-            $this->pdf->Cell(30,10,'TODOS LOS USUARIOS',0,0,'C');
+            $this->pdf->Cell(30,10,'TODOS LOS APRENDICES',0,0,'C');
             // Salto de línea
             $this->pdf->Ln(20);
         }//fin del encabezado
@@ -31,9 +31,9 @@
             $this -> pdf->SetFont('Arial','B',16);
             
             try {
-                $objDtoUser = new User();
-                $objDaoUser = new UserModel($objDtoUser);
-                $respon = $objDaoUser -> mldSearchAllUser()->fetchAll();
+                $objDtoAprendiz = new Aprendiz();
+                $objDaoAprendiz = new AprendizModel($objDtoAprendiz);
+                $respon = $objDaoAprendiz -> mldSearchAllAprendiz()->fetchAll();
             } catch (PDOException $e) {
                 echo "Error on the creation of the 
                 controller of show all " . $e->getMessage();
@@ -41,9 +41,11 @@
             $this->pdf->Ln(10);
             foreach ($respon as $key => $value) {
                 
-                $this->pdf->Cell(40,10,$value['CODE'] );
-                $this->pdf->Cell(40,10,$value['USER'] );
-                $this->pdf->Cell(40,10,$value['NAME'] );
+                $this->pdf->Cell(40,10,$value['codigo'] );
+                $this->pdf->Cell(40,10,$value['nombre'] );
+                $this->pdf->Cell(40,10,$value['fechaNacimiento'] );
+                $this->pdf->Cell(40,10,$value['sexo'] );
+                $this->pdf->Cell(40,10,$value['ciudad'] );
                 $this->pdf->Ln(10);
             }
         }
